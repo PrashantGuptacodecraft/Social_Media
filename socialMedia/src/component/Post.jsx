@@ -1,19 +1,36 @@
-const Post=({post})=>{
-    return<div className="card" style={{ width: "18rem" }}>
-  {/* <img src="..." className="card-img-top" alt="..." /> */}
+import { useContext } from "react";
+import { MdDelete } from "react-icons/md";
+import { PostList } from "../store/post-list-store";
 
-  <div className="card-body">
-    <h5 className="card-title">{post.title}</h5>
+const Post = ({ post }) => {
+const {deletePost}=useContext(PostList);
 
-    <p className="card-text">
-      {post.body}
-    </p>
 
-    <a href="#" className="btn btn-primary">
-      Go somewhere
-    </a>
-  </div>
+
+
+  return (
+    <div className="card post-card position-relative" style={{ width: "30rem" }}>
+      <div className="card-body">
+        <h5 className="card-title">{post.title}</h5>
+
+        {/* Delete button */}
+        <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" onClick={()=>deletePost(post.id)} >
+          <MdDelete style={{ cursor: "pointer" }} />
+        </span>
+
+        <p className="card-text">{post.body}</p>
+
+        {post.tags.map((tag, index) => (
+          <span key={index} className="badge text-bg-primary hashtag me-1">
+            {tag}
+          </span>
+        ))}
+        <div className="alert alert-success reaction" role="alert">
+ MY reaction
 </div>
+      </div>
+    </div>
+  );
+};
 
-}
-export default Post
+export default Post;
