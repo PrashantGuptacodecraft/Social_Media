@@ -4,6 +4,7 @@ import { PostList } from "../store/post-list-store";
 
 const Post = ({ post }) => {
 const {deletePost}=useContext(PostList);
+console.log(post)
 
 
 
@@ -26,10 +27,12 @@ const {deletePost}=useContext(PostList);
           </span>
         ))}
         <div className="alert alert-success reaction" role="alert">
- MY reaction
+
+My Reaction not working
 </div>
       </div>
     </div>
+
   );
 };
 

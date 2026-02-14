@@ -27,7 +27,7 @@ const Sidebar = ({selectedTab,setSelectedTab}) => {
 
       <ul className="nav nav-pills flex-column mb-auto">
         <li className="nav-item" onClick={()=>{
-          console.log("clicked")
+          // console.log("clicked")
        setSelectedTab("Home")
         }
         }>

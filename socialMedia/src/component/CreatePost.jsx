@@ -17,8 +17,8 @@ const CreatePost=()=>{
     const userId=userIdElement.current.value;
     const postTitle=postTitleElement.current.value;
     const postBody=postBodyElement.current.value;
-    const reaction=reactionElement.current.value
-    const tags=tagsElement.current.value.split('')
+    const reactions=reactionElement.current.value
+    const tags=tagsElement.current.value.split(" ")
 
     userIdElement.current.value='';
     postTitleElement.current.value='';
@@ -26,7 +26,7 @@ const CreatePost=()=>{
     reactionElement.current.value=''
     tagsElement.current.value=''
 
-addPost(userId,postTitle,postBody,reaction,tags)
+addPost(userId,postTitle,postBody,reactions,tags)
   }
 
     return <form className="create-post"onSubmit={handleSubmit} >
